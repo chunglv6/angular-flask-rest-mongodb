@@ -1,0 +1,88 @@
+<div *ngIf="account">
+    <h2>{{account.firstname | uppercase}} Edit</h2>
+    
+        <div>
+            <div class="row">
+                <div class="col-2">id:</div>
+                <div class="col-4">
+                    <input [(ngModel)]="account._id['$oid']" readonly="true" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">account_number:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.account_number" placeholder="account_number">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">balance:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.balance" placeholder="balance">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">firstname:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.firstname" placeholder="firstname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">lastname:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.lastname" placeholder="lastname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">age:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.age" placeholder="age">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">gender:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.gender" placeholder="gender">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">address:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.address" placeholder="address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">employer:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.employer" placeholder="employer">
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-2">email:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.email" placeholder="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">city:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.city" placeholder="city">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">state:</div>
+                <div class="col-4">
+                    <input class="form-control" [(ngModel)]="account.state" placeholder="state">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <button class="btn-success" (click)="goBack()">go back</button>&nbsp;&nbsp;
+                    <button class="btn-success" (click)="save()">save</button>
+                </div>
+            
+                
+    
+            </div>
+        </div>
+</div>

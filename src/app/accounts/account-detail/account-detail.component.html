@@ -1,0 +1,41 @@
+<div *ngIf="account">
+    <h2>Account ID <span style="color:blue;">{{account._id['$oid'] | uppercase}}</span> Details</h2>
+    <div>
+      <p>
+        account_number: {{account.account_number}}
+      </p>
+      <p>
+        balance: {{account.balance}}
+    </p>
+    <p>
+        firstname: {{account.firstname}}
+    </p>
+    <p>
+        lastname: {{account.lastname}}
+    </p>
+    <p>
+        age: {{account.age}}
+    </p>
+    <p>
+        gender: {{account.gender}}
+    </p>
+    <p>
+        address: {{account.address}}
+    </p>
+    <p>
+        employer: {{account.employer}}
+    </p>
+    <p>
+        email: {{account.email}}
+    </p>
+    <p>
+        city: {{account.city}}
+    </p>
+    <p>
+        state: {{account.state}}
+    </p>
+
+      
+    </div>
+    <button (click)="goBack()">go back</button>
+  </div>
