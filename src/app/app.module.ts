@@ -22,6 +22,9 @@ import { RegisterComponent } from './register/register.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MyDatatableComponent } from './my-datatable/my-datatable.component';
+import { MatButtonModule } from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AccountDetailComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyDatatableComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatTableModule,
     NgxPaginationModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    MatButtonToggleModule
 
   ],
   providers: [authInterceptorProviders],

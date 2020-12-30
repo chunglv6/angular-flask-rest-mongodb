@@ -215,8 +215,7 @@
           <button class="rounded-circle" title="delete account" (click)="delete(account)"><i class="fas fa-trash"></i></button>
          </td>
       </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <caption>100 records of <span style="color:#82a8ed;">page {{page}}</span> of  {{total_record}}</caption>
     </table>
@@ -232,14 +231,15 @@
     <ng-template #_display><span disabled>Previous</span></ng-template>
     
     <li class="page-item" *ngFor="let i of pages">
-      <span *ngIf="i <6 ;then valid else invalid"></span>
+      <span *ngIf="i < 6 ;then valid else invalid"></span>
         <ng-template #valid>
           <span (click)="changepage($event)" *ngIf="page == i then _active else _inactive">{{i}}</span>
           <ng-template #_active><span style="background-color: #40de97;">{{i}}</span></ng-template>
           <ng-template #_inactive><span (click)="changepage($event)">{{i}}</span></ng-template>
         </ng-template>
-        <ng-template #invalid>.</ng-template>      
+     
     </li>
+    <li class="page-item" *ngIf="totalPage >=6 "><span>..</span></li>
     
     <li class="page-item"><span (click)="changepage($event)" *ngIf="page == totalPage then _nextDisable else _next" >Next</span></li>
     <ng-template #_next><span (click)="changepage($event)">Next</span></ng-template>

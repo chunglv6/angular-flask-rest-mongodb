@@ -1,0 +1,35 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <span *ngFor="let i of displayedColumns">
+        <mat-text-column name="{{i}}" ></mat-text-column>
+    </span>
+    
+    <!-- <mat-text-column name="name"></mat-text-column>
+    <mat-text-column name="weight"></mat-text-column>
+    <mat-text-column name="symbol"></mat-text-column> -->
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <caption>100 records of <span style="color:#82a8ed;">page {{page}}</span> of  {{total_records}}</caption>
+  </table>
+
+  <ul class="pagination">
+    <li class="page-item"><span (click)="changepage($event)" *ngIf="page==1 then _display else _disable">Previous</span></li>
+    <ng-template #_disable><span (click)="changepage($event)">Previous</span></ng-template>
+    <ng-template #_display><span disabled>Previous</span></ng-template>
+    
+    <li class="page-item" *ngFor="let i of pages">
+      <span *ngIf="i < 6 ;then valid else invalid"></span>
+        <ng-template #valid>
+          <span (click)="changepage($event)" *ngIf="page == i then _active else _inactive">{{i}}</span>
+          <ng-template #_active><span style="background-color: #40de97;">{{i}}</span></ng-template>
+          <ng-template #_inactive><span (click)="changepage($event)">{{i}}</span></ng-template>
+        </ng-template>
+             
+    </li>
+    <li class="page-item"><span  *ngIf="totalPage >= 6">..</span></li>
+     
+    
+    <li class="page-item"><span (click)="changepage($event)" *ngIf="page == totalPage then _nextDisable else _next" >Next</span></li>
+    <ng-template #_next><span (click)="changepage($event)">Next</span></ng-template>
+    <ng-template #_nextDisable><span disabled>Next</span></ng-template>
+  </ul>

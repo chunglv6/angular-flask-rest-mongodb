@@ -7,6 +7,7 @@ import { AccountListComponent } from './accounts/account-list/account-list.compo
 import { AppGuard } from './guards/app.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MyDatatableComponent } from './my-datatable/my-datatable.component';
 import { RegisterComponent } from './register/register.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'accountAdd', component: AccountAddComponent ,canActivate: [AppGuard]},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'myDataTable', component: MyDatatableComponent }
 ];
 
 @NgModule({

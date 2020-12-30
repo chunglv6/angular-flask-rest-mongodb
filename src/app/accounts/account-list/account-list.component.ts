@@ -37,7 +37,7 @@ prePage;
 nextpage;
 totalPage;
 total_record;
- pages = [1,2,3,4,5,6,7,8,9,10]
+ pages = []
 
   ngOnInit(): void {
     this.search_account();
@@ -88,18 +88,21 @@ total_record;
     this.accountService.searchAccount(paginator).subscribe(data =>{
       this.accounts = JSON.parse(data.accounts);
       this.total_record = Number(data.total_record)
-      console.log(this.accounts)
+      if(this.total_record % 100 == 0){
+        this.totalPage = this.total_record/100
+      }else{
+        this.totalPage = this.total_record/100+1
+      }
+      for(let i = 1;i<=this.totalPage;i++){
+        this.pages[i] = i;
+      }
       this.dataSource =  new MatTableDataSource<Account>(this.accounts);
       this.dataSource.paginator = this.paginator;
     });
   }
   
   changepage(event){
-    if(this.total_record % 100 == 0){
-      this.totalPage = this.total_record/100
-    }else{
-      this.totalPage = this.total_record/100+1
-    }
+
     const content = event.target.innerHTML
     if(content=='Previous'){
       this.page = this.page -1
